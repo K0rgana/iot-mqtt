@@ -1,0 +1,9 @@
+# instructions:
+# python -m venv venv # create virtual env
+#   source venv/bin/activate #activate linux
+#   ./venv/Scripts/Activate.ps1 #activate Wind
+# pip install -r requirements.txt # install packeges
+#
+
+# required libraries
+paho-mqtt
