@@ -8,7 +8,7 @@ import time
 brokerUrl = "95b18c726f0e4dd0a4df08c8be520675.s2.eu.hivemq.cloud"
 brokerPort = 8883
 brokerUsername = "@lunoifp3"
-brokerPassword = "@lunoifp3"
+brokerPassword = ""
 
 client = paho.Client(client_id="", userdata=None, protocol=paho.MQTTv5)
 client.tls_set(tls_version=mqtt.client.ssl.PROTOCOL_TLS)
@@ -18,8 +18,8 @@ client.connect(brokerUrl, brokerPort)
 def mock_number(min, max): 
   return random.randrange(min,max)
 
-def mock_boolean(): 
-  list = ['false', 'true']
+def mock_presence(): 
+  list = [1, 0]
   return random.choice(list)
 
 def mock_topic(): 
@@ -35,8 +35,8 @@ def mock_msgs(max):
         temp = mock_number(17, 30)  
         msg = {'topic':'lab/temperature', 'payload': temp}
       if topic == 'presence':
-        boo = mock_boolean()  
-        msg = {'topic':'lab/presence', 'payload': boo}
+        presc = mock_presence()  
+        msg = {'topic':'lab/presence', 'payload': presc}
       payload.append(msg)
       i=i+1
   return payload
